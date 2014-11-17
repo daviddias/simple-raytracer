@@ -5,13 +5,12 @@ var Png = require('png').Png;
 
 // Constants
 var N_UNITS = 50;
-var SCENE_PATH = './example-scenes/pokeball.rt'
+var SCENE_PATH = './example-scenes/pokeball.rt';
 
-var scene = srt.prepareScene(SCENE_PATH)
+var scene = srt.prepareScene(SCENE_PATH);
 
 var tasks = srt.prepareTasks({
   split: N_UNITS, /* Number of tasks the job is going to be divided into */
-  animation: false,
   width: scene.global.width,
   height: scene.global.height
 });
@@ -19,7 +18,7 @@ var tasks = srt.prepareTasks({
 // console.log('TASKS:', tasks);
 // console.log('SCENE:', scene);
 
-var rgb = rgb = new Buffer(scene.global.width * scene.global.height * 3);
+var rgb = new Buffer(scene.global.width * scene.global.height * 3);
 
 var results = tasks.map(function(task) {
   return {
@@ -30,10 +29,11 @@ var results = tasks.map(function(task) {
     animation: task.animation,
     data: srt.runRayTraceTask(scene, task)
   };
-})
+});
 
 
 results.map(function (el) {
+  var i = 0;
   for(var y = el.begin_y; y < el.end_y; y++) {
     for(var x = el.begin_x; x < el.end_x; x++) {
       var z = (x * scene.global.width + y) * 3;

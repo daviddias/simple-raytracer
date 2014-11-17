@@ -39,14 +39,14 @@ function prepare(opts) {
       }
     }
   } else {
-    for(var i = 0; i < splitWidth; i++) {
-      for(var j = 0; j < splitHeight; j++) {
+    for(var k = 0; k < splitWidth; k++) {
+      for(var z = 0; z < splitHeight; z++) {
         data.push({
           'id': id++,
-          'begin_x': jobHeight * j,
-          'end_x': j < splitHeight - 1 ? jobHeight * (j + 1) : opts.height,
-          'begin_y': jobWidth * i,
-          'end_y': i < splitWidth - 1 ? jobWidth * (i + 1) : opts.width
+          'begin_x': jobHeight * z,
+          'end_x': z < splitHeight - 1 ? jobHeight * (z + 1) : opts.height,
+          'begin_y': jobWidth * k,
+          'end_y': k < splitWidth - 1 ? jobWidth * (k + 1) : opts.width
         });
       }
     }

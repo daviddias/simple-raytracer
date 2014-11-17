@@ -6,4 +6,4 @@ module.exports = function (scene_file_path) {
   var input = fs.readFileSync(scene_file_path, 'utf8');
   var scene = new Parser(input).parse();
   return scene;
-}
+};
