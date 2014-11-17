@@ -1,0 +1,81 @@
+group
+{
+  id		1
+  size_mul	1
+#  rot		0 -20 0
+#  coords	-30 -10 0
+}
+
+global
+{
+  width		1000
+  height	1000
+  distscreen	1000
+  highdef	0.25
+}
+eye
+{
+  coords	-200 0 0
+}
+item
+{
+  bump 1
+  type		plane
+  color		FFFFFF
+  reflect	20
+  checkerboard	30
+  coords	0 0 -25
+}
+light
+{
+  color		FFFFFF
+  intensity	100
+  coords	-300 100 100
+}
+item
+{
+  type		sphere
+  color		FF0000
+  radius	25
+  limits	0 0 0 0 2 25
+  coords	0 0 0
+  reflect	20
+  group_id	1
+}
+item
+{
+  type		sphere
+  color		000000
+  radius	25
+  coords	0 0 0
+  limits	0 0 0 0 -2 2
+  group_id	1
+}
+item
+{
+  type		sphere
+  color		000000
+  radius	7
+  coords	-20 0 0
+  reflect	10
+  group_id	1
+}
+item
+{
+  type		sphere
+  color		FFFFFF
+  radius	4
+  coords	-24 0 0
+  reflect	10
+  group_id	1
+}
+item
+{
+  type		sphere
+  color		FFFFFF
+  radius	25
+  coords	0 0 0
+  limits	0 0 0 0 -25 -2
+  group_id	1
+  reflect	20
+}

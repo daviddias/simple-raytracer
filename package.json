@@ -1,0 +1,37 @@
+{
+  "name": "simple-raytracer",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/diasdavid/simple-raytracer"
+  },
+  "keywords": [
+    "raytracer",
+    "simple",
+    "javascript",
+    "ray",
+    "tracing",
+    "image",
+    "3d",
+    "render"
+  ],
+  "author": "David Dias <daviddias.p@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/diasdavid/simple-raytracer/issues"
+  },
+  "homepage": "https://github.com/diasdavid/simple-raytracer",
+  "devDependencies": {
+    "code": "^1.2.1",
+    "lab": "^5.0.2",
+    "tap-spec": "^1.0.1"
+  },
+  "dependencies": {
+    "png": "^3.0.3"
+  }
+}
