@@ -674,8 +674,10 @@ function encode(byte1, byte2, byte3) {
 
 
 module.exports = function run(_scene, d) {
-  var scene = _scene;
+  var scene = JSON.parse(JSON.stringify(_scene));
   scene.job = d;
+  // console.log('SCENE INSIDE RAYTRACER: ', scene);
+
   return {
     id: d.id,
     data: render(scene, d.animation)

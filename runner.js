@@ -5,7 +5,7 @@ var Png = require('png').Png;
 
 // Constants
 var N_UNITS = 50;
-var SCENE_PATH = './example-scenes/pokeball.rt';
+var SCENE_PATH = './example-scenes/reflect.rt';
 
 var scene = srt.prepareScene(SCENE_PATH);
 
@@ -15,8 +15,7 @@ var tasks = srt.prepareTasks({
   height: scene.global.height
 });
 
-// console.log('TASKS:', tasks);
-// console.log('SCENE:', scene);
+
 
 var rgb = new Buffer(scene.global.width * scene.global.height * 3);
 
@@ -27,9 +26,13 @@ var results = tasks.map(function(task) {
     begin_y: task.begin_y,
     end_y: task.end_y,
     animation: task.animation,
-    data: srt.runRayTraceTask(scene, task)
+    data: srt.runRayTraceTask(scene, task).data
   };
 });
+
+console.log('\n\nTASKS: \n\n', tasks);
+console.log('\n\nSCENE: \n\n', scene);
+console.log('\n\nRAYTRACED \n\n', results);
 
 
 results.map(function (el) {
