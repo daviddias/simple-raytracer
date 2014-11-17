@@ -5,7 +5,7 @@ var Png = require('png').Png;
 
 // Constants
 var N_UNITS = 50;
-var SCENE_PATH = './example-scenes/reflect.rt';
+var SCENE_PATH = './example-scenes/pokeball.rt';
 
 var scene = srt.prepareScene(SCENE_PATH);
 
@@ -47,6 +47,11 @@ results.map(function (el) {
   }
 });
 
+
 var png = new Png(rgb, scene.global.width, scene.global.height, 'rgb');
-fs.writeFileSync('./out.png', png.encodeSync().toString('binary'), 'binary');
+
+fs.writeFileSync('./out.png', png.encodeSync());
+
+
+// fs.writeFileSync('./out.png', png.encodeSync().toString('binary'), 'binary');
 
