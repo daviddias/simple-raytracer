@@ -644,14 +644,14 @@ function render(scene, animation) {
   }
 
   /* Render */
-  var result = ''; // []
+  var result = []; // ''; // []
   for(var y = scene.job.begin_y; y < scene.job.end_y; y++) {
     for(var x = scene.job.begin_x; x < scene.job.end_x; x++) {
       var color = process(y, x, scene.global.upscale, scene.global.randomRays);
-      result += encode(~~(color[0] * 255), ~~(color[1] * 255), ~~(color[2] * 255));
-      // result.push(~~(color[0] * 255));
-      // result.push(~~(color[1] * 255));
-      // result.push(~~(color[2] * 255));
+      // result += encode(~~(color[0] * 255), ~~(color[1] * 255), ~~(color[2] * 255));
+      result.push(~~(color[0] * 255));
+      result.push(~~(color[1] * 255));
+      result.push(~~(color[2] * 255));
     }
   }
   return result;
