@@ -1,6 +1,6 @@
 {
   "name": "simple-raytracer",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -31,9 +31,10 @@
     "jshint": "^2.5.10",
     "lab": "^5.0.2",
     "precommit-hook": "^1.0.7",
-    "tap-spec": "^1.0.1"
+    "tap-spec": "^1.0.1",
+    "png": "^3.0.3"
   },
   "dependencies": {
-    "png": "^3.0.3"
+
   }
 }
