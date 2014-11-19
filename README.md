@@ -4,7 +4,10 @@ simple-raytracer
 > `simple-raytracer` works as a standalone version of the JS raytracer found in [distracer.io](http://distracer.io), which was inspired by [jsRayTracer](https://github.com/vjeux/jsRayTracer). It's purpose is to offer a simple raytracing interface that can be run locally in, in a distributed fashion on a server or even in browsers
 
 # Badgers
-
+[![NPM](https://nodei.co/npm/simple-raytracer.png?downloads=true&stars=true)](https://nodei.co/npm/simple-raytracer/)
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/diasdavid/simple-raytracer?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) 
+[![Dependency Status](https://david-dm.org/diasdavid/simple-raytracer.svg)](https://david-dm.org/diasdavid/simple-raytracer)
+[![Build Status](https://travis-ci.org/diasdavid/simple-raytracer.svg)](https://travis-ci.org/diasdavid/simple-raytracer)
 
 # Description
 
