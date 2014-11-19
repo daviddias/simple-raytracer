@@ -1,6 +1,6 @@
 {
   "name": "simple-raytracer",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "`simple-raytracer` works as a standalone version of the JS raytracer found in [distracer.io](http://distracer.io), which was inspired by [jsRayTracer](https://github.com/vjeux/jsRayTracer). It's purpose is to offer a simple raytracing interface that can be run locally in, in a distributed fashion on a server or even in browsers",
   "main": "index.js",
   "scripts": {
