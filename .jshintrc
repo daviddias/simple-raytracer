@@ -2,20 +2,28 @@
   "asi": false,
   "expr": true,
   "loopfunc": true,
-  "quotmark": true,
   "strict": false,
-  "curly": false,
+  "curly": true,
   "evil": true,
   "curly": true,
   "white": true,
   "trailing": true,
   "eqeqeq": true,
+  "immed": true,
+  "indent": 2,
+  "debug": true,
+  "newcap": true,
   "undef": true,
   "unused": false,
+
+  "quotmark": "single",
+  "maxdepth": 4,
+  "maxlen": 80,
+
   "node": true,
+  "browser": true,
+
   "globals": {
-    "io": true,
-    "window": true,
-    "t": true
+    "window": true
   }
 }

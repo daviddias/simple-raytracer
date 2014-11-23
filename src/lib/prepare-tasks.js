@@ -4,26 +4,22 @@ module.exports = prepare;
 
 function prepare(opts) {
 
-  // if(opts.input == undefined) { throw 'Invalid Options'; }
-
   var split = opts.split || 10;
   var animation = opts.animation || false;
-  
-  // var scene = new Parser(opts.input).parse(); // Parse input
-  var data = []; // 
+  var data = [];
 
   /* Calculate jobs sizes */
   var jobWidth = Math.floor(opts.width / split);
   var splitWidth = Math.ceil(opts.width / jobWidth);
-  
+
   var jobHeight = Math.floor(opts.height / split);
   var splitHeight = Math.ceil(opts.height / jobHeight);
 
   var id = 0;
-  if(animation) {
-    for(var frame = 0; frame < animation.frames; frame++) {
-      for(var i = 0; i < splitWidth; i++) {
-        for(var j = 0; j < splitHeight; j++) {
+  if (animation) {
+    for (var frame = 0; frame < animation.frames; frame++) {
+      for (var i = 0; i < splitWidth; i++) {
+        for (var j = 0; j < splitHeight; j++) {
           data.push({
             'id': id++,
             'animation': {
@@ -39,8 +35,8 @@ function prepare(opts) {
       }
     }
   } else {
-    for(var k = 0; k < splitWidth; k++) {
-      for(var z = 0; z < splitHeight; z++) {
+    for (var k = 0; k < splitWidth; k++) {
+      for (var z = 0; z < splitHeight; z++) {
         data.push({
           'id': id++,
           'begin_x': jobHeight * z,
@@ -51,6 +47,5 @@ function prepare(opts) {
       }
     }
   }
-  return data;  
+  return data;
 }
-    
