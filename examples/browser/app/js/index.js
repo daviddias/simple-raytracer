@@ -6,7 +6,23 @@ window.app = {
     var body = document.querySelector('body');
     body.innerHTML = '<canvas id="mycanvas"></canvas>'
 
+    var canvas = document.querySelector('#mycanvas');
+    var canvasContext = canvas.getContext("2d");
+    var canvasImageData = [];
+
+    canvas.width = canvas.width;  /* Clear canvas */
+
+    var currFrame = 0;
+
+    var drawFrame = 0;
+    var then = Date.now();
+    var delta;
+
+
+
     
+
+
     console.log('RAYTRACING START');
     var N_UNITS = 50;
     var scene_file = fs.readFileSync('./../../example-scenes/pokeball.rt', 'utf8');
