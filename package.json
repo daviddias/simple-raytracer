@@ -43,6 +43,7 @@
   "devDependencies": {
     "brfs": "^1.2.0",
     "code": "^1.2.1",
+    "domready": "^1.0.7",
     "hapi": "^7.5.2",
     "jscs": "^1.7.3",
     "jshint": "^2.5.10",
