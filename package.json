@@ -41,10 +41,13 @@
   },
   "homepage": "https://github.com/diasdavid/simple-raytracer",
   "devDependencies": {
+    "brfs": "^1.2.0",
     "code": "^1.2.1",
+    "hapi": "^7.5.2",
     "jscs": "^1.7.3",
     "jshint": "^2.5.10",
     "lab": "^5.0.2",
+    "moonboots_hapi": "^3.0.2",
     "png": "^3.0.3",
     "precommit-hook": "^1.0.7",
     "tap-spec": "^1.0.1"
