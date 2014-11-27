@@ -43,7 +43,7 @@ var rayTraceResult = srt.runTask(scene, tasks[0]);
 
 ## Example of running it with Node
 
-You can find the [example here](https://github.com/diasdavid/simple-raytracer/tree/master/examples/browser), it is using [`Png`](https://www.npmjs.org/package/png) to export the image to a .png.
+You can find the [example here](https://github.com/diasdavid/simple-raytracer/tree/master/examples/browser), it is using [`Png`](https://www.npmjs.org/package/png) to export the image to a .png. To use the `png` module properly, you have to have `libpng` installed, if you are on a mac you can use `brew install libpng` or if you are on ubuntu, you can do `sudo apt-get install libpng12-0`.
 
 To run it simply do:
 
