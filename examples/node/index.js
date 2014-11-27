@@ -1,22 +1,27 @@
 var fs = require('fs');
-var srt = require('./index.js');
+var srt = require('./../../index.js');
+
+/* we use the Png module to export the generated image to Png */
 var Png = require('png').Png;
 
-// Constants
-var N_UNITS = 50;
+/* parse the 'world' that is going to be ray traced */
 var SCENE_PATH = './example-scenes/pokeball.rt';
-
 var scene = srt.prepareScene.byPath(SCENE_PATH);
 
+/* number of units per split (total: N_UNITS * N_UNITS) */
+var N_UNITS = 50;
+
+/* create each individual task to be executed */
 var tasks = srt.prepareTasks({
-  split: N_UNITS, /* Number of tasks the job is going to be divided into */
+  split: N_UNITS, 
   width: scene.global.width,
   height: scene.global.height
 });
 
-
+/* buffer that will glue the image all together before being exported */
 var rgb = new Buffer(scene.global.width * scene.global.height * 3);
 
+/* take each task and execute a ray trace on the world with it */
 var results = tasks.map(function(task) {
   return {
     begin_x: task.begin_x,
@@ -28,11 +33,7 @@ var results = tasks.map(function(task) {
   };
 });
 
-// console.log('\n\nTASKS: \n\n', tasks);
-// console.log('\n\nSCENE: \n\n', scene);
-// console.log('\n\nRAYTRACED \n\n', results);
-
-
+/* glue each ray trace result back together */
 results.map(function (el) {
   var i = 0;
   for(var y = el.begin_y; y < el.end_y; y++) {
@@ -45,12 +46,9 @@ results.map(function (el) {
   }
 });
 
-// console.log('RGB:\n', rgb);
 
-
+/* write the image to a png */
 var png = new Png(rgb, scene.global.width, scene.global.height, 'rgb');
+fs.writeFileSync('/tmp/out.png', png.encodeSync());
 
-fs.writeFileSync('./out.png', png.encodeSync());
-
-// fs.writeFileSync('./out.png', png.encodeSync().toString('binary'), 'binary');
 

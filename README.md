@@ -9,72 +9,75 @@ simple-raytracer
 
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/diasdavid/simple-raytracer?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)[![Dependency Status](https://david-dm.org/diasdavid/simple-raytracer.svg)](https://david-dm.org/diasdavid/simple-raytracer)
 
-## Description
+## What is Ray Tracing?
 
+tl;dr; In computer graphics, ray tracing is a technique for generating an image by tracing the path of light through pixels in an image plane and simulating the effects of its encounters with virtual objects.
 
+If you would like to know more, [wikipedia has your back](http://en.wikipedia.org/wiki/Ray_tracing_(graphics))
+
+## What does this module offer
+
+A simple interface to execute a ray tracing job over a 'world' or 'scene' described in CSS, from scene parser, to job task partition, to the actual individual ray trace task and finally how to glue the results together so you can get your rendered image. 
+
+A great place to start is by checking the examples folder to see how to run it using Node.js or using the browser only.
 
 ## API
 
-
-
-## Example local
-
 ```
-var fs = require('fs');
+/* require the module */ 
 var srt = require('simple-raytracer');
-var Png = require('png').Png;
 
-var N_SPLIT = 50; // The number of tasks will be N_SPLIT * N_SPLIT
-var SCENE_PATH = './example-scenes/pokeball.rt'; // The scene configuration to be processed
+/* parse a scene */
+var scene = srt.prepareScene.byPath(path/to/scene/file);
 
-// Parse and load the scene configuration
-var scene = srt.prepareScene(SCENE_PATH);
-
-// Create the tasks that are going to be executed, depending on the scene size and N_SPLIT
+/* create individual tasks, each one is a work unit */
 var tasks = srt.prepareTasks({
-  split: N_SPLIT, /* Number of tasks the job is going to be divided into */
+  split: 20,  
   width: scene.global.width,
   height: scene.global.height
 });
 
-
-// Execute a RayTrace for every single Task
-var results = tasks.map(function(task) {
-  return {
-    begin_x: task.begin_x,
-    end_x: task.end_x,
-    begin_y: task.begin_y,
-    end_y: task.end_y,
-    animation: task.animation,
-    data: srt.runTask(scene, task).data
-  };
-});
-
-// Construct the image into a buffer 
-var rgb = new Buffer(scene.global.width * scene.global.height * 3);
-
-results.map(function (el) {
-  var i = 0;
-  for(var y = el.begin_y; y < el.end_y; y++) {
-    for(var x = el.begin_x; x < el.end_x; x++) {
-      var z = (x * scene.global.width + y) * 3;
-      rgb[z] = el.data[i++];
-      rgb[z+1] = el.data[i++];
-      rgb[z+2] = el.data[i++];
-    }
-  }
-});
-
-// Print out an PNG from the RayTraced Image
-var png = new Png(rgb, scene.global.width, scene.global.height, 'rgb');
-fs.writeFileSync('./out.png', png.encodeSync());
+/* use srt.runTask to execute each of them */
+var rayTraceResult = srt.runTask(scene, tasks[0]);
 ```
 
+## Example of running it with Node
 
-## Example browser with `browserify`
+You can find the [example here](https://github.com/diasdavid/simple-raytracer/tree/master/examples/browser), it is using [`Png`](https://www.npmjs.org/package/png) to export the image to a .png.
 
+To run it simply do:
+
+```
+$ git clone git@github.com:diasdavid/simple-raytracer.git
+$ cd simple-raytracer
+$ npm i
+$ cd examples/node
+$ node index.js
+```
+
+## Example of running it in the browser with `browserify`
+
+You can find the [example here](https://github.com/diasdavid/simple-raytracer/tree/master/examples/node), it is using [`moonboots_hapi`](https://www.npmjs.org/moonboots_hapi) to do the browserify and serve the file work.
+
+To run it simply do:
+
+```
+$ git clone git@github.com:diasdavid/simple-raytracer.git
+$ cd simple-raytracer
+$ npm i
+$ cd examples/browser
+$ node index.js
+# open your browser in http://localhost:9000
+```
 
 ## Acknowledgements
 
 Thank you to Diogo Cunha and Pierre Ozoux for creating distracer.io that lead to the creation of this module and Igor Soarez for reviewing and helping me solve a gnarly bug :)
   
+## TODO
+
+- [ ] More Node.js tests
+- [ ] Browser tests
+- [ ] A scene validator to check if the scene is valid to create a 'raytraceable' world
+- [ ] Reach code coverage 100%
+- [ ] Make a performance analysis and see where it can be improved
