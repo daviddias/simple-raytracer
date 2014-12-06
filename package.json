@@ -2,7 +2,7 @@
   "name": "simple-raytracer",
   "version": "0.4.0",
   "description": "standalone version of the JS raytracer found in [distracer.io](http://distracer.io), which was inspired by [jsRayTracer](https://github.com/vjeux/jsRayTracer).",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "codestyle": "./node_modules/.bin/jscs -p google src/index.js src/lib/prepare-scene.js src/lib/prepare-tasks.js tests/*.js",
     "lint": "./node_modules/.bin/jshint src/index.js src/lib/prepare-scene.js src/lib/prepare-tasks.js tests/*.js",
