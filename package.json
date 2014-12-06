@@ -1,6 +1,6 @@
 {
   "name": "simple-raytracer",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "standalone version of the JS raytracer found in [distracer.io](http://distracer.io), which was inspired by [jsRayTracer](https://github.com/vjeux/jsRayTracer).",
   "main": "src/index.js",
   "scripts": {
