@@ -73,11 +73,3 @@ $ node index.js
 ## Acknowledgements
 
 Thank you to Diogo Cunha and Pierre Ozoux for creating distracer.io that lead to the creation of this module and Igor Soarez for reviewing and helping me solve a gnarly bug :)
-  
-## TODO
-
-- [ ] More Node.js tests
-- [ ] Browser tests
-- [ ] A scene validator to check if the scene is valid to create a 'raytraceable' world
-- [ ] Reach code coverage 100%
-- [ ] Make a performance analysis and see where it can be improved

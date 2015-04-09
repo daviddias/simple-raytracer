@@ -19,9 +19,13 @@ window.app = {
       height: scene.global.height
     });
     
+    var startTime = Date.now();
+
     /* take each task and execute a ray trace on the world with it */
     var results = tasks.map(function(task) {
-      return {
+      var s = Date.now();
+      
+      var thing = {
         begin_x: task.begin_x,
         end_x: task.end_x,
         begin_y: task.begin_y,
@@ -29,7 +33,12 @@ window.app = {
         animation: task.animation,
         data: srt.runTask(scene, task).data
       };
+      console.log(Date.now()-s);
+      return thing;
     });      
+
+    var endTime = Date.now();
+    console.log('diff: ', endTime - startTime);
 
     /* we have to make sure the dom is ready before adding our canvas el */
     domready(function () {
