@@ -9,6 +9,8 @@ simple-raytracer
 
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/diasdavid/simple-raytracer?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)[![Dependency Status](https://david-dm.org/diasdavid/simple-raytracer.svg)](https://david-dm.org/diasdavid/simple-raytracer)
 
+[![](https://cldup.com/pgZbzoshyV-3000x3000.png)](http://www.gsd.inesc-id.pt/)
+
 ## What is Ray Tracing?
 
 tl;dr; In computer graphics, ray tracing is a technique for generating an image by tracing the path of light through pixels in an image plane and simulating the effects of its encounters with virtual objects.
