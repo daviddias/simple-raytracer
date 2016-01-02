@@ -1,21 +1,20 @@
-var fs = require('fs');
+var fs = require('fs')
 
-module.exports = prepare;
+module.exports = prepare
 
-function prepare(opts) {
-
-  var split = opts.split || 10;
-  var animation = opts.animation || false;
-  var data = [];
+function prepare (opts) {
+  var split = opts.split || 10
+  var animation = opts.animation || false
+  var data = []
 
   /* Calculate jobs sizes */
-  var jobWidth = Math.floor(opts.width / split);
-  var splitWidth = Math.ceil(opts.width / jobWidth);
+  var jobWidth = Math.floor(opts.width / split)
+  var splitWidth = Math.ceil(opts.width / jobWidth)
 
-  var jobHeight = Math.floor(opts.height / split);
-  var splitHeight = Math.ceil(opts.height / jobHeight);
+  var jobHeight = Math.floor(opts.height / split)
+  var splitHeight = Math.ceil(opts.height / jobHeight)
 
-  var id = 0;
+  var id = 0
   if (animation) {
     for (var frame = 0; frame < animation.frames; frame++) {
       for (var i = 0; i < splitWidth; i++) {
@@ -30,7 +29,7 @@ function prepare(opts) {
             'end_x': j < splitHeight - 1 ? jobHeight * (j + 1) : opts.height,
             'begin_y': jobWidth * i,
             'end_y': i < splitWidth - 1 ? jobWidth * (i + 1) : opts.width
-          });
+          })
         }
       }
     }
@@ -43,9 +42,9 @@ function prepare(opts) {
           'end_x': z < splitHeight - 1 ? jobHeight * (z + 1) : opts.height,
           'begin_y': jobWidth * k,
           'end_y': k < splitWidth - 1 ? jobWidth * (k + 1) : opts.width
-        });
+        })
       }
     }
   }
-  return data;
+  return data
 }

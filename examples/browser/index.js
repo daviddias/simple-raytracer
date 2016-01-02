@@ -1,8 +1,8 @@
-var hapi = require('hapi');
-var moonboots = require('moonboots_hapi');
+var hapi = require('hapi')
+var moonboots = require('moonboots_hapi')
 
-var port = parseInt(process.env.PORT) || 9000;
-var server = hapi.createServer(port, 'localhost');
+var port = parseInt(process.env.PORT) || 9000
+var server = hapi.createServer(port, 'localhost')
 
 server.pack.register({
   plugin: moonboots,
@@ -18,6 +18,6 @@ server.pack.register({
   }
 }, function () {
   server.start(function () {
-    console.log('server has started on: http://localhost:' + port);
-  });
-});
+    console.log('server has started on: http://localhost:' + port)
+  })
+})

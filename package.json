@@ -4,14 +4,12 @@
   "description": "standalone version of the JS raytracer found in [distracer.io](http://distracer.io), which was inspired by [jsRayTracer](https://github.com/vjeux/jsRayTracer).",
   "main": "src/index.js",
   "scripts": {
-    "codestyle": "./node_modules/.bin/jscs -p google src/index.js src/lib/prepare-scene.js src/lib/prepare-tasks.js tests/*.js",
-    "lint": "./node_modules/.bin/jshint src/index.js src/lib/prepare-scene.js src/lib/prepare-tasks.js tests/*.js",
+    "lint": "standard",
     "test": "node ./node_modules/.bin/lab -r tap tests/*-test.js | ./node_modules/.bin/tap-spec",
     "test-cov": "node ./node_modules/.bin/lab -t 80 tests/*-test.js",
     "test-cov-html": "node ./node_modules/.bin/lab -r html -o coverage.html tests/*-test.js"
   },
-  "precommit": [
-    "codestyle",
+  "pre-commit": [
     "lint",
     "test"
   ],
@@ -45,15 +43,12 @@
     "code": "^1.2.1",
     "domready": "^1.0.7",
     "hapi": "^7.5.2",
-    "jscs": "^1.7.3",
-    "jshint": "^2.5.10",
     "lab": "^5.0.2",
     "moonboots_hapi": "^3.0.2",
     "png": "^3.0.3",
-    "precommit-hook": "^1.0.7",
+    "pre-commit": "^1.1.2",
+    "standard": "^5.4.1",
     "tap-spec": "^1.0.1"
   },
-  "dependencies": {
-    "brfs": "^1.2.0"
-  }
+  "dependencies": {}
 }
