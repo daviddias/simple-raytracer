@@ -42,16 +42,16 @@
   "homepage": "https://github.com/diasdavid/simple-raytracer",
   "devDependencies": {
     "brfs": "^1.2.0",
-    "code": "^1.2.1",
+    "code": "^4.0.0",
     "domready": "^1.0.7",
-    "hapi": "^7.5.2",
-    "jscs": "^1.7.3",
+    "hapi": "^16.1.0",
+    "jscs": "^3.0.7",
     "jshint": "^2.5.10",
-    "lab": "^5.0.2",
-    "moonboots_hapi": "^3.0.2",
+    "lab": "^11.2.2",
+    "moonboots_hapi": "^7.0.0",
     "png": "^3.0.3",
-    "precommit-hook": "^1.0.7",
-    "tap-spec": "^1.0.1"
+    "precommit-hook": "^3.0.0",
+    "tap-spec": "^4.1.1"
   },
   "dependencies": {
     "brfs": "^1.2.0"
