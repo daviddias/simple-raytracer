@@ -54,6 +54,6 @@
     "tap-spec": "^4.1.1"
   },
   "dependencies": {
-    "brfs": "^1.2.0"
+    "brfs": "^1.5.0"
   }
 }
