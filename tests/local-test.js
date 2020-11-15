@@ -10,7 +10,7 @@ var expect = Code.expect
 
 var fs = require('fs')
 var srt = require('./../src/index.js')
-var Png = require('png').Png
+var PNG = require('pngjs').PNG
 
 experiment('local: ', function () {
   // Constants
@@ -72,7 +72,7 @@ experiment('local: ', function () {
   })
 
   test('produce output in png', function (done) {
-    var rgb = new Buffer(scene.global.width * scene.global.height * 3)
+    var rgb = Buffer.alloc(scene.global.width * scene.global.height * 3)
 
     results.map(function (el) { // jscs:disable
       var i = 0
@@ -85,7 +85,7 @@ experiment('local: ', function () {
         }
       } // jscs:enable
     })
-    var png = new Png(rgb, scene.global.width, scene.global.height, 'rgb')
+    var png = new PNG(rgb, scene.global.width, scene.global.height, 'rgb')
     fs.writeFileSync('/tmp/out.png', png.encodeSync())
 
     // TODO: compare /tmp/out.png and ./expected/pokeball.png

@@ -12,6 +12,8 @@ simple-raytracer
 
 tl;dr; In computer graphics, ray tracing is a technique for generating an image by tracing the path of light through pixels in an image plane and simulating the effects of its encounters with virtual objects.
 
+The original authors of jsRayTracer offer a great in depth explanation of how Ray Tracing works and how the core of this module performs it. Worth [checking it out](https://blog.vjeux.com/2012/javascript/javascript-ray-tracer.html).
+
 If you would like to know more, [wikipedia has your back](http://en.wikipedia.org/wiki/Ray_tracing_(graphics))
 
 ## What does this module offer
