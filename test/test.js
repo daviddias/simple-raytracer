@@ -1,25 +1,25 @@
-var Lab = require('lab')
-var Code = require('code')
-var lab = exports.lab = Lab.script()
+const Lab = require('lab')
+const Code = require('code')
+const lab = exports.lab = Lab.script()
 
-var experiment = lab.experiment
-var test = lab.test
-var before = lab.before
-var after = lab.after
-var expect = Code.expect
+const experiment = lab.experiment
+const test = lab.test
+const before = lab.before
+const after = lab.after
+const expect = Code.expect
 
-var fs = require('fs')
-var srt = require('./../src/index.js')
-var PNG = require('pngjs').PNG
+const fs = require('fs')
+const srt = require('./../src/index.js')
+const PNG = require('pngjs').PNG
 
 experiment('local: ', function () {
   // Constants
-  var N_UNITS = 10
-  var SCENE_PATH = './example-scenes/pokeball.rt'
+  const N_UNITS = 10
+  const SCENE_PATH = './example-scenes/pokeball.rt'
 
-  var scene
-  var tasks
-  var results
+  let scene
+  let tasks
+  let results
 
   before(function (done) {
     done()
@@ -72,20 +72,20 @@ experiment('local: ', function () {
   })
 
   test('produce output in png', function (done) {
-    var rgb = Buffer.alloc(scene.global.width * scene.global.height * 3)
+    const rgb = Buffer.alloc(scene.global.width * scene.global.height * 3)
 
     results.map(function (el) { // jscs:disable
-      var i = 0
-      for (var y = el.begin_y; y < el.end_y; y++) {
-        for (var x = el.begin_x; x < el.end_x; x++) {
-          var z = (x * scene.global.width + y) * 3
+      let i = 0
+      for (let y = el.begin_y; y < el.end_y; y++) {
+        for (let x = el.begin_x; x < el.end_x; x++) {
+          const z = (x * scene.global.width + y) * 3
           rgb[z] = el.data[i++]
           rgb[z + 1] = el.data[i++]
           rgb[z + 2] = el.data[i++]
         }
       } // jscs:enable
     })
-    var png = new PNG(rgb, scene.global.width, scene.global.height, 'rgb')
+    const png = new PNG(rgb, scene.global.width, scene.global.height, 'rgb')
     fs.writeFileSync('/tmp/out.png', png.encodeSync())
 
     // TODO: compare /tmp/out.png and ./expected/pokeball.png

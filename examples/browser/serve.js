@@ -2,7 +2,7 @@ const budo = require('budo')
 const brfs = require('brfs')
 
 budo('./app.js', {
-  live: true,             // setup live reload
+  live: true, // setup live reload
   port: parseInt(process.env.PORT) || 9000,
   host: 'localhost',
   browserify: {

@@ -11,7 +11,7 @@ api.prepareScene.byPath = (scenePath) => {
 }
 
 api.prepareScene.byBuffer = (sceneFile) => {
-  var scene = new Parser(sceneFile).parse()
+  const scene = new Parser(sceneFile).parse()
   return scene
 }
 
