@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "lint": "standard",
-    "test": "lab -r tap tests/*-test.js | tap-spec"
+    "test": "lab -r tap test/test.js | tap-spec"
   },
   "repository": {
     "type": "git",
@@ -36,11 +36,12 @@
     "brfs": "^2.0.2",
     "code": "^5.2.4",
     "domready": "^1.0.8",
-    "lab": "^18.0.2",
+    "@hapi/lab": "^18.0.2",
     "pngjs": "^6.0.0",
     "tap-spec": "^5.0.0"
   },
   "dependencies": {
-    "budo": "^11.6.4"
+    "budo": "^11.6.4",
+    "standard": "^16.0.2"
   }
 }
