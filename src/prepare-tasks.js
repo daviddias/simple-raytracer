@@ -1,20 +1,20 @@
 module.exports = (opts) => {
-  var split = opts.split || 10
-  var animation = opts.animation || false
-  var data = []
+  const split = opts.split || 10
+  const animation = opts.animation || false
+  const data = []
 
   /* Calculate jobs sizes */
-  var jobWidth = Math.floor(opts.width / split)
-  var splitWidth = Math.ceil(opts.width / jobWidth)
+  const jobWidth = Math.floor(opts.width / split)
+  const splitWidth = Math.ceil(opts.width / jobWidth)
 
-  var jobHeight = Math.floor(opts.height / split)
-  var splitHeight = Math.ceil(opts.height / jobHeight)
+  const jobHeight = Math.floor(opts.height / split)
+  const splitHeight = Math.ceil(opts.height / jobHeight)
 
-  var id = 0
+  let id = 0
   if (animation) {
-    for (var frame = 0; frame < animation.frames; frame++) {
-      for (var i = 0; i < splitWidth; i++) {
-        for (var j = 0; j < splitHeight; j++) {
+    for (let frame = 0; frame < animation.frames; frame++) {
+      for (let i = 0; i < splitWidth; i++) {
+        for (let j = 0; j < splitHeight; j++) {
           data.push({
             id: id++,
             animation: {
@@ -30,8 +30,8 @@ module.exports = (opts) => {
       }
     }
   } else {
-    for (var k = 0; k < splitWidth; k++) {
-      for (var z = 0; z < splitHeight; z++) {
+    for (let k = 0; k < splitWidth; k++) {
+      for (let z = 0; z < splitHeight; z++) {
         data.push({
           id: id++,
           begin_x: jobHeight * z,
