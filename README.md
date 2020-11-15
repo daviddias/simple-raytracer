@@ -1,7 +1,7 @@
 simple-raytracer
 ================
 
-[![NPM](https://nodei.co/npm/simple-raytracer.png?downloads=true&stars=true)](https://nodei.co/npm/simple-raytracer/)
+[![Build Status](https://travis-ci.com/daviddias/simple-raytracer.svg?branch=master)](https://travis-ci.com/daviddias/simple-raytracer)
 [![Dependency Status](https://david-dm.org/daviddias/simple-raytracer.svg)](https://david-dm.org/daviddias/simple-raytracer)
 
 > `simple-raytracer` works as a standalone version of the JS raytracer found in [distracer.io](http://distracer.io), which was inspired by [jsRayTracer](https://github.com/vjeux/jsRayTracer). It's presents a very simple interface to break a Ray Tracing job into multiple tasks that can be run sequentially or in parallel.
