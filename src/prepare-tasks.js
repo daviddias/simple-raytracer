@@ -1,6 +1,4 @@
-module.exports = prepare
-
-function prepare (opts) {
+module.exports = (opts) => {
   var split = opts.split || 10
   var animation = opts.animation || false
   var data = []

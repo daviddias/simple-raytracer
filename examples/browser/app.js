@@ -5,8 +5,8 @@ var domready = require('domready')
 window.app = {
   init: function () {
     /* parse the 'world' that is going to be ray traced */
-    var scene_file = fs.readFileSync('./../../scenes/pokeball.rt', 'utf8')
-    var scene = srt.prepareScene.byFile(scene_file)
+    var buf = fs.readFileSync('./../../scenes/pokeball.rt', 'utf8')
+    var scene = srt.prepareScene.byBuffer(buf)
 
     /* number of units per split (total: N_UNITS * N_UNITS) */
     var N_UNITS = 50

@@ -105,4 +105,4 @@ var Parser = (function () {
   return Parser
 })()
 
-module.exports.Parser = Parser
+module.exports = Parser

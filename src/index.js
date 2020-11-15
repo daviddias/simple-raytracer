@@ -1,5 +1,21 @@
-exports = module.exports
+const fs = require('fs')
+const Parser = require('./scene-parser')
 
-exports.prepareTasks = require('./lib/prepare-tasks.js')
-exports.prepareScene = require('./lib/prepare-scene.js')
-exports.runTask = require('./lib/raytracer-engine.js')
+const api = {}
+
+api.prepareScene = {}
+
+api.prepareScene.byPath = (scenePath) => {
+  const buffer = fs.readFileSync(scenePath, 'utf8')
+  return api.prepareScene.byBuffer(buffer)
+}
+
+api.prepareScene.byBuffer = (sceneFile) => {
+  var scene = new Parser(sceneFile).parse()
+  return scene
+}
+
+api.prepareTasks = require('./prepare-tasks.js')
+api.runTask = require('./engine.js')
+
+module.exports = api
