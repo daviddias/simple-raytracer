@@ -1,11 +1,11 @@
 var fs = require('fs')
-var srt = require('./../../index.js')
+var srt = require('./../../src/index.js')
 
-/* we use the Png module to export the generated image to Png */
-var Png = require('png').Png
+/* use the Png module to export the generated image to Png */
+var PNG = require('pngjs').PNG
 
 /* parse the 'world' that is going to be ray traced */
-var SCENE_PATH = './example-scenes/pokeball.rt'
+var SCENE_PATH = './../../scenes/pokeball.rt'
 var scene = srt.prepareScene.byPath(SCENE_PATH)
 
 /* number of units per split (total: N_UNITS * N_UNITS) */
@@ -19,7 +19,7 @@ var tasks = srt.prepareTasks({
 })
 
 /* buffer that will glue the image all together before being exported */
-var rgb = new Buffer(scene.global.width * scene.global.height * 3)
+var rgb = Buffer.alloc(scene.global.width * scene.global.height * 3)
 
 /* take each task and execute a ray trace on the world with it */
 var results = tasks.map(function (task) {
@@ -47,5 +47,10 @@ results.map(function (el) {
 })
 
 /* write the image to a png */
-var png = new Png(rgb, scene.global.width, scene.global.height, 'rgb')
-fs.writeFileSync('/tmp/out.png', png.encodeSync())
+var png = new PNG(rgb)
+const buf = PNG.sync.write(png, {
+  width: scene.global.width, 
+  height: scene.global.height
+})
+
+fs.writeFileSync('/tmp/out.png', buf)

@@ -1,5 +1,3 @@
-var fs = require('fs')
-
 module.exports = prepare
 
 function prepare (opts) {
